@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recruitment Portal - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Recruitment Portal</h1>
+    <nav>
+      <a href="{{ url_for('jobs') }}">View Available Jobs</a>
+      {% if 'admin' in session %}
+        <a href="{{ url_for('admin_jobs') }}">Admin Dashboard</a>
+        <a href="{{ url_for('admin_logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('admin_login') }}">Admin Login</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Find Your Next Career Opportunity</h2>
+      <p>Browse jobs from top companies and apply easily through our portal.</p>
+      <a href="{{ url_for('jobs') }}" class="btn">Browse Jobs</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Recruitment Portal. All rights reserved.</p>
+  </footer>
+</body>
+</html>

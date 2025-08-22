@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Available Jobs – Recruitment Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1>Recruitment Portal</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/admin/login">Admin</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Available Jobs</h2>
+  {% if jobs %}
+    {% for job in jobs %}
+      <div class="job">
+        <h3>{{ job[1] }}</h3>
+        <p><strong>at</strong> {{ job[2] }}</p>
+        {% if job[3].startswith('http') %}
+          <a href="{{ job[3] }}" class="btn" target="_blank">Apply on Company Site</a>
+        {% else %}
+          <p style="color: red;">Invalid apply link</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No jobs available right now.</p>
+  {% endif %}
+</main>
+
+<footer>
+  <p>&copy; 2025 Recruitment Portal</p>
+</footer>
+</body>
+</html>

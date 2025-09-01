@@ -1,5 +1,6 @@
-
+/* ---------------- CSS Variables ---------------- */
 :root {
+  /* Dark Theme Colors (default) */
   --bg-color: #0f172a;
   --header-bg: linear-gradient(135deg, #0ea5e9, #2563eb);
   --text-color: #f8fafc;
@@ -13,6 +14,7 @@
   --flash-error-bg: #ef4444;
 }
 
+/* Light Theme Overrides */
 body.dark-theme {
   --bg-color: #f9fafb;
   --header-bg: linear-gradient(135deg, #60a5fa, #3b82f6);
@@ -27,12 +29,14 @@ body.dark-theme {
   --flash-error-bg: #dc2626;
 }
 
+/* ---------------- Base Reset & Typography ---------------- */
 body {
   margin: 0;
   font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 a {
@@ -45,6 +49,7 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+/* ---------------- Header ---------------- */
 header {
   background: var(--header-bg);
   color: var(--text-color);
@@ -92,6 +97,7 @@ header nav a:hover::after {
   width: 100%;
 }
 
+/* Theme Toggle Button */
 #theme-toggle {
   background: none;
   border: none;
@@ -107,6 +113,7 @@ header nav a:hover::after {
   color: var(--link-hover-color);
 }
 
+/* ---------------- Hero Section ---------------- */
 .hero {
   text-align: center;
   padding: 60px 25px;
@@ -142,6 +149,7 @@ body.dark-theme .hero p {
   color: #475569;
 }
 
+/* ---------------- Buttons ---------------- */
 .btn {
   display: inline-block;
   padding: 12px 26px;
@@ -317,6 +325,7 @@ body.dark-theme .admin-dashboard th {
   color: white;
 }
 
+/* ---------------- Responsive ---------------- */
 @media (max-width: 800px) {
   .admin-dashboard table,
   .admin-dashboard thead,
@@ -345,8 +354,18 @@ body.dark-theme .admin-dashboard th {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    max-width: 100%;
+    padding: 40px 15px;
+  }
+
   .hero h2 {
     font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .hero-buttons button {
@@ -357,9 +376,22 @@ body.dark-theme .admin-dashboard th {
   .apply-form,
   .admin-login {
     padding: 20px;
+    max-width: 90%;
   }
 
   .job {
     padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  header nav {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  header nav a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1rem;
   }
 }
